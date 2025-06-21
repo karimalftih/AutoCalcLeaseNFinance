@@ -67,7 +67,6 @@ class LeaseResultsViewController: UIViewController {
         EndDateOutput.text = df.string(from: r.payOffDate)
     }
     @IBAction func DismissPressed(_ sender: UIButton) {
-        print("💥 DismissPressed tapped")
         dismiss(animated: true)
     }
 }

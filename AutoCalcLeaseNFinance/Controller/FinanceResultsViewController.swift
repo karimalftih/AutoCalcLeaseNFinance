@@ -62,7 +62,6 @@ class FinanceResultsViewController: UIViewController {
 
 
     @IBAction func DismissPressed(_ sender: UIButton) {
-        print("💥 DismissPressed tapped")
         dismiss(animated: true, completion: nil)
     }
 }
