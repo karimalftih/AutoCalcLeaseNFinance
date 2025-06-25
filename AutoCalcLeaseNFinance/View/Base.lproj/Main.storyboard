@@ -99,7 +99,7 @@
         <!--Finance-->
         <scene sceneID="VMt-RW-QyS">
             <objects>
-                <viewController title="Finance" id="bES-Lo-mLP" customClass="FinanceCalculatorViewController" customModule="AutoCalcLeaseNFinance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FinanceView" title="Finance" id="bES-Lo-mLP" customClass="FinanceCalculatorViewController" customModule="AutoCalcLeaseNFinance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hSO-bC-BL1" userLabel="FinanceMainView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,7 +125,7 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6M-US-RGG">
                                                                         <rect key="frame" x="0.0" y="0.0" width="216.66666666666666" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4i-f1-b6E">
                                                                         <rect key="frame" x="0.0" y="44" width="216.66666666666666" height="34.333333333333343"/>
@@ -136,17 +136,17 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tEE-Sg-Stn">
                                                                         <rect key="frame" x="0.0" y="88.333333333333343" width="216.66666666666666" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B1p-iO-dj6">
                                                                         <rect key="frame" x="0.0" y="132.33333333333334" width="216.66666666666666" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qd3-Vu-DLW">
                                                                         <rect key="frame" x="0.0" y="176.33333333333331" width="216.66666666666666" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0z8-Sr-6fb">
                                                                         <rect key="frame" x="0.0" y="220.33333333333331" width="216.66666666666666" height="34.333333333333343"/>
@@ -157,22 +157,22 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ex2-jB-9Z1">
                                                                         <rect key="frame" x="0.0" y="264.66666666666669" width="216.66666666666666" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tOh-CI-IVs">
                                                                         <rect key="frame" x="0.0" y="308.66666666666669" width="216.66666666666666" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXm-vl-nSN">
                                                                         <rect key="frame" x="0.0" y="352.66666666666669" width="216.66666666666666" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FtM-Jy-aIB">
                                                                         <rect key="frame" x="0.0" y="396.66666666666669" width="216.66666666666666" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="mdM-ca-ztx">
                                                                         <rect key="frame" x="0.0" y="440.66666666666663" width="216.66666666666666" height="50"/>
@@ -347,7 +347,7 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1pl-jy-4jO">
                                                                         <rect key="frame" x="0.0" y="0.0" width="210.33333333333334" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cL-Fn-cuO">
                                                                         <rect key="frame" x="0.0" y="44" width="210.33333333333334" height="34.333333333333343"/>
@@ -358,17 +358,17 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c31-Fb-4hW">
                                                                         <rect key="frame" x="0.0" y="88.333333333333343" width="210.33333333333334" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="toV-J3-9eu">
                                                                         <rect key="frame" x="0.0" y="132.33333333333334" width="210.33333333333334" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Kh-9z-MOg">
                                                                         <rect key="frame" x="0.0" y="176.33333333333331" width="210.33333333333334" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5v-i6-JGN">
                                                                         <rect key="frame" x="0.0" y="220.33333333333331" width="210.33333333333334" height="34.333333333333343"/>
@@ -379,22 +379,22 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3oP-OH-4bG">
                                                                         <rect key="frame" x="0.0" y="264.66666666666669" width="210.33333333333334" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5u6-uR-w9B">
                                                                         <rect key="frame" x="0.0" y="308.66666666666669" width="210.33333333333334" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="krR-yH-jHD">
                                                                         <rect key="frame" x="0.0" y="352.66666666666669" width="210.33333333333334" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q8V-Gb-bD6">
                                                                         <rect key="frame" x="0.0" y="396.66666666666669" width="210.33333333333334" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4j-oV-aMM">
                                                                         <rect key="frame" x="0.0" y="440.66666666666663" width="210.33333333333334" height="34.333333333333314"/>
@@ -556,7 +556,7 @@
         <!--Saved Quotes-->
         <scene sceneID="jfL-Q3-EZf">
             <objects>
-                <viewController title="Saved Quotes" id="Xu6-uB-Il3" customClass="SavedQuotesViewController" customModule="AutoCalcLeaseNFinance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuotesView" title="Saved Quotes" id="Xu6-uB-Il3" customClass="SavedQuotesViewController" customModule="AutoCalcLeaseNFinance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vdv-SW-E6w" userLabel="SavedQuotesMainView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -570,15 +570,51 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvF-Z0-Gm1" userLabel="SavedQuotesSubView">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="656"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QMT-6U-3u1">
-                                                <rect key="frame" x="16" y="16" width="361" height="624"/>
-                                            </stackView>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ma7-gd-Nkq">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="656"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QuoteCell" textLabel="aqW-U4-uvG" detailTextLabel="EM9-rn-PIU" imageView="sZg-rh-NbT" style="IBUITableViewCellStyleSubtitle" id="nVJ-if-ImM">
+                                                        <rect key="frame" x="0.0" y="50" width="393" height="68.666664123535156"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nVJ-if-ImM" id="dY5-e9-dt6">
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="68.666664123535156"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aqW-U4-uvG">
+                                                                    <rect key="frame" x="59" y="9.9999999999999982" width="35" height="24.333333333333332"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </label>
+                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EM9-rn-PIU">
+                                                                    <rect key="frame" x="59" y="37.333333333333329" width="49.666666666666664" height="20"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </label>
+                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sZg-rh-NbT">
+                                                                    <rect key="frame" x="22.5" y="20.333333333333329" width="19" height="28"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <imageReference key="image" image="dollarsign" catalog="system" symbolScale="large"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </tableViewCellContentView>
+                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                            </tableView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="QMT-6U-3u1" firstAttribute="top" secondItem="mvF-Z0-Gm1" secondAttribute="top" constant="16" id="7JS-m4-N2d"/>
-                                            <constraint firstItem="QMT-6U-3u1" firstAttribute="leading" secondItem="mvF-Z0-Gm1" secondAttribute="leading" constant="16" id="oMw-Jc-pTB"/>
-                                            <constraint firstAttribute="trailing" secondItem="QMT-6U-3u1" secondAttribute="trailing" constant="16" id="q3s-fR-V5s"/>
-                                            <constraint firstAttribute="bottom" secondItem="QMT-6U-3u1" secondAttribute="bottom" constant="16" id="vvw-UO-qUF"/>
+                                            <constraint firstItem="Ma7-gd-Nkq" firstAttribute="top" secondItem="mvF-Z0-Gm1" secondAttribute="top" id="0u1-AI-01b"/>
+                                            <constraint firstItem="Ma7-gd-Nkq" firstAttribute="leading" secondItem="mvF-Z0-Gm1" secondAttribute="leading" id="6h1-Nb-ZbQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ma7-gd-Nkq" secondAttribute="trailing" id="HRQ-Ar-a0P"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ma7-gd-Nkq" secondAttribute="bottom" id="g4b-Du-i4j"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -607,6 +643,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jBW-xT-coc"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ma7-gd-Nkq" id="fWr-3w-Qdm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gjH-5G-YoY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -777,6 +816,9 @@
                                                                     <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <color key="baseBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="SavePressed:" destination="tZO-m5-tnT" eventType="touchUpInside" id="fEB-Zd-r0r"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCo-lH-hXR">
                                                                 <rect key="frame" x="130.33333333333334" y="0.0" width="122.33333333333334" height="34.333333333333336"/>
@@ -1039,6 +1081,9 @@
                                                                     <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <color key="baseBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="SavePressed:" destination="WZu-cy-n9m" eventType="touchUpInside" id="Ouf-A1-DXk"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIm-fb-nqV">
                                                                 <rect key="frame" x="130.33333333333334" y="0.0" width="122.33333333333334" height="34.333333333333336"/>
@@ -1118,6 +1163,7 @@
     <resources>
         <image name="AppBackground" width="1024" height="1536"/>
         <image name="AutoCalc-Background2" width="1024" height="1024"/>
+        <image name="dollarsign" catalog="system" width="89" height="128"/>
         <image name="dollarsign.gauge.chart.lefthalf.righthalf" catalog="system" width="128" height="105"/>
         <image name="dollarsign.ring.dashed" catalog="system" width="128" height="124"/>
         <image name="filemenu.and.selection" catalog="system" width="128" height="93"/>

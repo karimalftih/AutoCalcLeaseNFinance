@@ -1,6 +1,8 @@
+// FinanceCalculatorViewController.swift
+
 import UIKit
 
-/// Finance input screen — now with text-fields for interest & tax.
+/// Finance input screen — now with text‐fields for interest & tax.
 class FinanceCalculatorViewController: UIViewController, UITextFieldDelegate {
     
     private var pendingQuote: FinanceQuote?
@@ -21,12 +23,28 @@ class FinanceCalculatorViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // ─── DEFAULTS ───────────────────────────────
+        VehiclePriceInput.text = "44000"
+        LoanTermInput.setTitle("84", for: .normal)
+        InterestRateInput.text = "6"
+        SalesTaxInput.text     = "13"
+        DownPaymentInput.text  = "0"
+        TradeInValueInput.text = "0"
+        AmountOwedInput.text   = "0"
+        RebatesInput.text      = "0"
+        AllOtherFeesInput.text = "0"
+        PaymentFrequencyInput.setTitle("12", for: .normal)
+        // ────────────────────────────────────────────
+
         configureLoanTermMenu()
         configurePaymentFrequencyMenu()
+
         let tap = UITapGestureRecognizer(target: self,
                                          action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+
         [ VehiclePriceInput,
           InterestRateInput,
           DownPaymentInput,
@@ -50,7 +68,6 @@ class FinanceCalculatorViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Actions
 
     @IBAction func CalculatePressed(_ sender: UIButton) {
-        // 1) build your quote
         let quote = FinanceQuote(
           vehiclePrice:    InputParser.parseDouble(from: VehiclePriceInput, defaultValue: 0),
           downPayment:     InputParser.parseDouble(from: DownPaymentInput,     defaultValue: 0),
@@ -65,10 +82,7 @@ class FinanceCalculatorViewController: UIViewController, UITextFieldDelegate {
           startDate:       StartDateInput.date
         )
 
-        // 2) calculate
         let result = FinanceCalculator.calculate(quote: quote)
-
-        // 3) stash & fire the segue
         pendingQuote  = quote
         pendingResult = result
         performSegue(withIdentifier: "ShowFinanceResults", sender: self)
@@ -96,7 +110,7 @@ class FinanceCalculatorViewController: UIViewController, UITextFieldDelegate {
             }
         }
         LoanTermInput.menu = UIMenu(title: "Loan Term (months)", children: terms)
-        LoanTermInput.showsMenuAsPrimaryAction = true
+        LoanTermInput.showsMenuAsPrimaryAction     = true
         LoanTermInput.changesSelectionAsPrimaryAction = true
     }
 
@@ -107,7 +121,7 @@ class FinanceCalculatorViewController: UIViewController, UITextFieldDelegate {
             }
         }
         PaymentFrequencyInput.menu = UIMenu(title: "Payments/Year", children: freqs)
-        PaymentFrequencyInput.showsMenuAsPrimaryAction = true
+        PaymentFrequencyInput.showsMenuAsPrimaryAction     = true
         PaymentFrequencyInput.changesSelectionAsPrimaryAction = true
     }
 }

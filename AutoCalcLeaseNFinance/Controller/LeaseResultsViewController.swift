@@ -19,53 +19,84 @@ class LeaseResultsViewController: UIViewController {
     // passed-in data
     var leaseQuote : LeaseQuote?
     var leaseResult: LeaseResult?
+    
+    private let moneyFormatter: NumberFormatter = {
+        let f = NumberFormatter()
+        f.numberStyle = .decimal
+        f.minimumFractionDigits = 2
+        f.maximumFractionDigits = 2
+        f.groupingSeparator = ","
+        f.locale = .current
+        return f
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let q = leaseQuote, let r = leaseResult else { return }
 
-        // 1) Term in months
         LeaseTermOutput.text = "\(q.leaseTermMonths) mo"
 
-        // 2) Payment & interest rate
-        PaymentAndInterestRateOutput.text = String(
-            format: "$ %.2f   %.2f%%",
-            r.periodicPayment,
-            q.annualInterest
-        )
+        let pay   = moneyFormatter.string(from: r.periodicPayment as NSNumber) ?? "–"
+        let rate  = String(format: "%.2f%%", q.annualInterest)
+        PaymentAndInterestRateOutput.text = "$ \(pay)   \(rate)"
 
-        // 3) Down payment
-        UpfrontPaymentOutput.text = String(format: "$ %.2f", r.upfrontPayment)
+        let down  = moneyFormatter.string(from: r.upfrontPayment as NSNumber) ?? "–"
+        UpfrontPaymentOutput.text = "$ \(down)"
 
-        // 4) Net trade-in
-        TradeInAmountOutput.text = String(format: "$ %.2f", q.tradeInValue - q.amountOwed)
+        let trade = moneyFormatter.string(from: (q.tradeInValue - q.amountOwed) as NSNumber) ?? "–"
+        TradeInAmountOutput.text = "$ \(trade)"
 
-        // 5) Leased amount before tax
-        LeasedAmountBeforeTaxOutput.text = String(format: "$ %.2f", r.leasedBeforeTax)
+        let before = moneyFormatter.string(from: r.leasedBeforeTax as NSNumber) ?? "–"
+        LeasedAmountBeforeTaxOutput.text = "$ \(before)"
 
-        // 6) Sales tax
-        SalesTaxOutput.text = String(format: "$ %.2f", r.salesTaxAmount)
+        let tax     = moneyFormatter.string(from: r.salesTaxAmount as NSNumber) ?? "–"
+        SalesTaxOutput.text = "$ \(tax)"
 
-        // 7) Leased amount including tax
-        LeasedAmountIncludingTaxOutput.text = String(format: "$ %.2f", r.leasedIncludingTax)
+        let incl    = moneyFormatter.string(from: r.leasedIncludingTax as NSNumber) ?? "–"
+        LeasedAmountIncludingTaxOutput.text = "$ \(incl)"
 
-        // 8) Total interest
-        TotalAccumilatedInterestOutput.text = String(format: "$ %.2f", r.totalAccumulatedInterest)
+        let interest = moneyFormatter.string(from: r.totalAccumulatedInterest as NSNumber) ?? "–"
+        TotalAccumilatedInterestOutput.text = "$ \(interest)"
 
-        // 9) Total lease cost
-        TotalCostOutput.text = String(format: "$ %.2f", r.totalLeaseCost)
+        let total   = moneyFormatter.string(from: r.totalLeaseCost as NSNumber) ?? "–"
+        TotalCostOutput.text = "$ \(total)"
 
-        // 10) Residual before tax
-        ResidualValueBeforeTaxOutput.text = String(format: "$ %.2f", r.residualValueAmount)
+        let resid   = moneyFormatter.string(from: r.residualValueAmount as NSNumber) ?? "–"
+        ResidualValueBeforeTaxOutput.text = "$ \(resid)"
 
-        // 11) Residual including tax
-        ResidualValueAfterTaxOutput.text = String(format: "$ %.2f", r.residualValueIncludingTax)
+        let residIncl = moneyFormatter.string(from: r.residualValueIncludingTax as NSNumber) ?? "–"
+        ResidualValueAfterTaxOutput.text = "$ \(residIncl)"
 
-        // 12) Lease-end date
         let df = DateFormatter()
         df.dateStyle = .medium
         EndDateOutput.text = df.string(from: r.payOffDate)
     }
+    
+    @IBAction func SavePressed(_ sender: UIButton) {
+        guard let q = leaseQuote, let r = leaseResult else { return }
+
+        // Build and store your SavedQuote
+        let sq = SavedQuote(
+          type:           .lease,
+          vehiclePrice:   q.vehiclePrice,
+          termMonths:     q.leaseTermMonths,
+          paymentsPerYear:q.paymentsPerYear,
+          payment:        r.periodicPayment,
+          interestRate:   q.annualInterest,
+          downPayment:    q.downPayment,
+          salesTaxPercent:q.salesTaxPercent,
+          totalCost:      r.totalLeaseCost
+        )
+        QuoteStore.shared.add(sq)
+
+        // Quick “toast” alert
+        let alert = UIAlertController(title: nil, message: "Quote Saved!", preferredStyle: .alert)
+        present(alert, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            alert.dismiss(animated: true)
+        }
+    }
+
     @IBAction func DismissPressed(_ sender: UIButton) {
         dismiss(animated: true)
     }

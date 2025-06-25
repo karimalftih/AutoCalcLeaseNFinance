@@ -1,6 +1,8 @@
+// LeaseCalculatorViewController.swift
+
 import UIKit
 
-/// Lease input screen — text-fields for interest & tax.
+/// Lease input screen — text‐fields for interest & tax.
 class LeaseCalculatorViewController: UIViewController, UITextFieldDelegate {
     
     private var pendingLeaseQuote : LeaseQuote?
@@ -22,13 +24,30 @@ class LeaseCalculatorViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // ─── DEFAULTS ───────────────────────────────
+        VehiclePriceInput.text = "44000"
+        LeaseTermInput.setTitle("48", for: .normal)
+        InterestRateInput.text = "6.59"
+        SalesTaxInput.text     = "13"
+        DownPaymentInput.text  = "0"
+        TradeInValueInput.text = "0"
+        AmountOwedInput.text   = "0"
+        RebatesInput.text      = "0"
+        AllOtherFeesInput.text = "0"
+        PaymentFrequencyInput.setTitle("12", for: .normal)
+        ResidualInput.setTitle("48%", for: .normal)
+        // ────────────────────────────────────────────
+
         configureLeaseTermMenu()
         configurePaymentFrequencyMenu()
         configureResidualMenu()
+
         let tap = UITapGestureRecognizer(target: self,
                                          action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+
         [ VehiclePriceInput,
           InterestRateInput,
           DownPaymentInput,
@@ -45,7 +64,8 @@ class LeaseCalculatorViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder(); return true
+        textField.resignFirstResponder()
+        return true
     }
 
     // MARK: - Actions
@@ -69,7 +89,6 @@ class LeaseCalculatorViewController: UIViewController, UITextFieldDelegate {
         let result = LeaseCalculator.calculate(quote: quote)
         pendingLeaseQuote  = quote
         pendingLeaseResult = result
-
         performSegue(withIdentifier: "ShowLeaseResults", sender: self)
     }
 
@@ -95,7 +114,7 @@ class LeaseCalculatorViewController: UIViewController, UITextFieldDelegate {
             }
         }
         LeaseTermInput.menu = UIMenu(title: "Lease Term", children: terms)
-        LeaseTermInput.showsMenuAsPrimaryAction = true
+        LeaseTermInput.showsMenuAsPrimaryAction     = true
         LeaseTermInput.changesSelectionAsPrimaryAction = true
     }
 
@@ -106,7 +125,7 @@ class LeaseCalculatorViewController: UIViewController, UITextFieldDelegate {
             }
         }
         PaymentFrequencyInput.menu = UIMenu(title: "Payments/Year", children: freqs)
-        PaymentFrequencyInput.showsMenuAsPrimaryAction = true
+        PaymentFrequencyInput.showsMenuAsPrimaryAction     = true
         PaymentFrequencyInput.changesSelectionAsPrimaryAction = true
     }
 
@@ -117,7 +136,7 @@ class LeaseCalculatorViewController: UIViewController, UITextFieldDelegate {
             }
         }
         ResidualInput.menu = UIMenu(title: "Residual (%)", children: percents)
-        ResidualInput.showsMenuAsPrimaryAction = true
+        ResidualInput.showsMenuAsPrimaryAction     = true
         ResidualInput.changesSelectionAsPrimaryAction = true
     }
 }

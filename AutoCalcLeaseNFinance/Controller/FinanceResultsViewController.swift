@@ -18,6 +18,17 @@ class FinanceResultsViewController: UIViewController {
     // passed-in data
     var financeQuote:  FinanceQuote?
     var financeResult: FinanceResult?
+    
+    // a reusable formatter:
+    private let moneyFormatter: NumberFormatter = {
+        let f = NumberFormatter()
+        f.numberStyle = .decimal
+        f.minimumFractionDigits = 2
+        f.maximumFractionDigits = 2
+        f.groupingSeparator = ","            // e.g. "1,234.56"
+        f.locale = .current                  // uses the user’s locale
+        return f
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,40 +37,62 @@ class FinanceResultsViewController: UIViewController {
         // 1) Term in months
         FinanceTermOutput.text = "\(q.loanTermMonths) mo"
 
-        // 2) Payment & interest rate
-        PaymentAndInterestRateOutput.text = String(
-            format: "$ %.2f   %.2f%%",
-            r.periodicPayment,
-            q.annualInterest
-        )
 
-        // 3) Down payment
-        UpfrontPaymentOutput.text = String(format: "$ %.2f", r.upfrontPayment)
+        // For every dollar amount, use the formatter:
+        let pay     = moneyFormatter.string(from: r.periodicPayment as NSNumber) ?? "–"
+        let rate    = String(format: "%.2f%%", q.annualInterest)
+        PaymentAndInterestRateOutput.text = "$ \(pay)   \(rate)"
 
-        // 4) Net trade-in
-        TradeInAmountOutput.text = String(format: "$ %.2f", q.tradeInValue - q.amountOwed)
+        let down    = moneyFormatter.string(from: r.upfrontPayment as NSNumber) ?? "–"
+        UpfrontPaymentOutput.text = "$ \(down)"
 
-        // 5) Financed before tax
-        FinancedAmountBeforeTaxOutput.text = String(format: "$ %.2f", r.financedBeforeTax)
+        let tradeIn = moneyFormatter.string(from: (q.tradeInValue - q.amountOwed) as NSNumber) ?? "–"
+        TradeInAmountOutput.text = "$ \(tradeIn)"
 
-        // 6) Sales tax
-        SalesTaxOutput.text = String(format: "$ %.2f", r.salesTaxAmount)
+        let before  = moneyFormatter.string(from: r.financedBeforeTax as NSNumber) ?? "–"
+        FinancedAmountBeforeTaxOutput.text = "$ \(before)"
 
-        // 7) Financed including tax
-        FinancedAmountIncludingTaxOutput.text = String(format: "$ %.2f", r.financedIncludingTax)
+        let tax     = moneyFormatter.string(from: r.salesTaxAmount as NSNumber) ?? "–"
+        SalesTaxOutput.text = "$ \(tax)"
 
-        // 8) Total interest
-        TotalAccumilatedInterestOutput.text = String(format: "$ %.2f", r.totalAccumulatedInterest)
+        let incl    = moneyFormatter.string(from: r.financedIncludingTax as NSNumber) ?? "–"
+        FinancedAmountIncludingTaxOutput.text = "$ \(incl)"
 
-        // 9) Total cost
-        TotalCostOutput.text = String(format: "$ %.2f", r.totalCost)
+        let interest = moneyFormatter.string(from: r.totalAccumulatedInterest as NSNumber) ?? "–"
+        TotalAccumilatedInterestOutput.text = "$ \(interest)"
 
-        // 10) Pay-off date
+        let total   = moneyFormatter.string(from: r.totalCost as NSNumber) ?? "–"
+        TotalCostOutput.text = "$ \(total)"
+
         let df = DateFormatter()
         df.dateStyle = .medium
         EndDateOutput.text = df.string(from: r.payOffDate)
     }
+    
+    @IBAction func SavePressed(_ sender: UIButton) {
+        guard let q = financeQuote, let r = financeResult else { return }
 
+         // Build and store your SavedQuote as before
+         let sq = SavedQuote(
+           type:           .finance,
+           vehiclePrice:   q.vehiclePrice,
+           termMonths:     q.loanTermMonths,
+           paymentsPerYear:q.paymentsPerYear,
+           payment:        r.periodicPayment,
+           interestRate:   q.annualInterest,
+           downPayment:    q.downPayment,
+           salesTaxPercent:q.salesTaxPercent,
+           totalCost:      r.totalCost
+         )
+         QuoteStore.shared.add(sq)
+
+         // Present a quick 1.5s “toast”
+         let alert = UIAlertController(title: nil, message: "Quote Saved!", preferredStyle: .alert)
+         present(alert, animated: true)
+         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+             alert.dismiss(animated: true)
+         }
+    }
 
     @IBAction func DismissPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
