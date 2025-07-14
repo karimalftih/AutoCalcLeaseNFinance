@@ -110,7 +110,7 @@ class FinanceResultsViewController: UIViewController {
             ctx.beginPage()
 
             // 1) faded background
-            if let bg = UIImage(named: "AutoCalc-Launch-Screen") {
+            if let bg = UIImage(named: "AppBackground2") {
                 bg.draw(in: pageRect, blendMode: .normal, alpha: 0.1)
             }
 
